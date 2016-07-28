@@ -56,20 +56,36 @@
 
 	var _reactRouter = __webpack_require__(159);
 
-	var _placeholderComponent = __webpack_require__(222);
+	var _component_header = __webpack_require__(222);
 
-	var _placeholderComponent2 = _interopRequireDefault(_placeholderComponent);
+	var _component_header2 = _interopRequireDefault(_component_header);
 
-	__webpack_require__(223);
+	var _component_test = __webpack_require__(223);
+
+	var _component_test2 = _interopRequireDefault(_component_test);
+
+	__webpack_require__(224);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var App = function App() {
+	var App = function App(props) {
 
 	    return _react2.default.createElement(
 	        'div',
-	        null,
-	        undefined.props.children
+	        { className: 'app' },
+	        _react2.default.createElement(_component_header2.default, null),
+	        _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: '/' },
+	            'Home'
+	        ),
+	        '   ',
+	        _react2.default.createElement(
+	            _reactRouter.Link,
+	            { to: 'test' },
+	            'Test Route'
+	        ),
+	        props.children
 	    );
 	};
 
@@ -78,9 +94,8 @@
 	    { history: _reactRouter.browserHistory },
 	    _react2.default.createElement(
 	        _reactRouter.Route,
-	        { path: '/' },
-	        _react2.default.createElement(IndexRoute, { component: App }),
-	        _react2.default.createElement(_reactRouter.Route, { path: 'test', component: Test })
+	        { path: '/', component: App },
+	        _react2.default.createElement(_reactRouter.Route, { path: 'test', component: _component_test2.default })
 	    )
 	), document.querySelector('.container'));
 
@@ -25350,11 +25365,11 @@
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-	var Placeholder = function Placeholder() {
+	var Header = function Header() {
 
 	    return _react2.default.createElement(
 	        "div",
-	        { className: "app" },
+	        { className: "header" },
 	        _react2.default.createElement(
 	            "h1",
 	            null,
@@ -25363,10 +25378,41 @@
 	    );
 	};
 
-	exports.default = Placeholder;
+	exports.default = Header;
 
 /***/ },
 /* 223 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	var Test = function Test() {
+
+	    return _react2.default.createElement(
+	        "div",
+	        { className: "test-component" },
+	        _react2.default.createElement(
+	            "h2",
+	            null,
+	            "Test Component"
+	        )
+	    );
+	};
+
+	exports.default = Test;
+
+/***/ },
+/* 224 */
 /***/ function(module, exports, __webpack_require__) {
 
 	'use strict';
@@ -25374,10 +25420,10 @@
 	// style-loader: Adds some css to the DOM by adding a <style> tag
 
 	// load the styles
-	var content = __webpack_require__(224);
+	var content = __webpack_require__(225);
 	if (typeof content === 'string') content = [[module.id, content, '']];
 	// add the styles to the DOM
-	var update = __webpack_require__(226)(content, {});
+	var update = __webpack_require__(227)(content, {});
 	if (content.locals) module.exports = content.locals;
 	// Hot Module Replacement
 	if (false) {
@@ -25396,21 +25442,21 @@
 	}
 
 /***/ },
-/* 224 */
+/* 225 */
 /***/ function(module, exports, __webpack_require__) {
 
-	exports = module.exports = __webpack_require__(225)();
+	exports = module.exports = __webpack_require__(226)();
 	// imports
 
 
 	// module
-	exports.push([module.id, "body {\n  padding-top: 40px;\n}\n\nh1 {\n  color: tomato;\n  font-size: 3em;\n}\n", ""]);
+	exports.push([module.id, "body {\n  padding-top: 40px;\n}\n\nh1 {\n  color: tomato;\n  font-size: 3em;\n}\n\n.test-component {\n  color: black;\n}\n", ""]);
 
 	// exports
 
 
 /***/ },
-/* 225 */
+/* 226 */
 /***/ function(module, exports) {
 
 	/*
@@ -25466,7 +25512,7 @@
 
 
 /***/ },
-/* 226 */
+/* 227 */
 /***/ function(module, exports, __webpack_require__) {
 
 	/*

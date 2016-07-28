@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
 
-import Header from './components/headerComponent.jsx';
-import Test from './components/testComponent.jsx';
+import Header from './components/component_header.jsx';
+import Test from './components/component_test.jsx';
 
 import '../style/main.scss';
 
