@@ -1,27 +1,24 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Router, Route, Link, browserHistory, IndexRoute} from 'react-router';
+import { Router, Route, browserHistory } from 'react-router';
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware } from 'redux';
 
-import Header from './components/header.component';
+import App from './components/app.component';
 import Test from './components/test.component';
 
 import '../style/main.scss';
 
-const App = (props) => {
+import reducers from './reducers';
 
-    return(
-        <div className="app">
-            <Header/>
-            <Link to="/">Home</Link> &nbsp; <Link to="test">Test Route</Link>
-            {props.children}
-        </div>
-    )
-}
+const createStoreWithMiddleWare = applyMiddleware()(createStore);
 
 ReactDOM.render(
+  <Provider store={createStoreWithMiddleWare(reducers)}>
     <Router history={browserHistory}>
         <Route path="/" component={App}>
-            <Route path="test" component={Test}></Route>
+            <Route path="test" component={Test} />
         </Route>
     </Router>
+  </Provider>
 , document.querySelector('.container'));
