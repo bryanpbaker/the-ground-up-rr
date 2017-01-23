@@ -4,7 +4,8 @@
   "description": "A starter kit for React/Redux apps, using webpack.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "webpack-dev-server"
   },
   "author": "Bryan P. Baker",
   "license": "ISC",
